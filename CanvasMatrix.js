@@ -1,4 +1,4 @@
-// d MELO b
+// ldMELOb
 
 class CanvasMatrix {
 
@@ -25,17 +25,20 @@ class CanvasMatrix {
     
     }
 
-    /**
+     /**
      * Change the values of a pixel.
      * @param{number} x - X coordinate.
      * @param{number} y - Y coordinate
-     * @param{array} rgba - Formated list [R, G, B, A]
+     * @param{number} r - red channel
+     * @param{number} g - green channel
+     * @param{number} b - blue channel
+     * @param{number} a - alpha channel
      */
 
-    set(x = 0, y= 0, rgba = [0, 0, 0, 0]) {
+    setp(x = 0, y= 0, r = 0, g = 0, b = 0, a = 0) {
 
         const i = (y * this.canvas.width + x) * 4;
-
+        const rgba = [r, g, b, a];
         for (let e = 0; e < 4; e++) this.data[i+e] = rgba[e];
 
     }
@@ -43,8 +46,7 @@ class CanvasMatrix {
     /**
      * Render pixels
      */
-
-    update() {
+    render() {
 
         this.ctx.putImageData(this.map, 0, 0);
 
