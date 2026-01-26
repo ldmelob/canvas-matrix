@@ -42,7 +42,22 @@ class CanvasMatrix {
         for (let e = 0; e < 4; e++) this.data[i+e] = rgba[e];
 
     }
+    
+     /**
+     * Return the values of a pixel.
+     * @param{number} x - X coordinate.
+     * @param{number} y - Y coordinate
+     */
 
+    getp(x = 0, y= 0, r = 0, g = 0, b = 0, a = 0) {
+
+        const i = (y * this.canvas.width + x) * 4;
+        const rgba = [0, 0, 0, 0];
+        for (let e = 0; e < 4; e++) rgba[e] = this.data[i+e];
+        return rgba;
+        
+    }
+    
     /**
      * Render pixels
      */
